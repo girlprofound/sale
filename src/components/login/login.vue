@@ -35,7 +35,7 @@ export default {
     async handLogin() {
       /* 
       把异步操作的代码看起来像同步代码
-      ES7 async+await
+      ES7 async+await:对代码性能没有优化，只是看起来更好看
       1、在异步操作有结果的前面加上await函数
       2、在距离该异步操作最近的函数前面加一个async函数
        */
@@ -47,18 +47,21 @@ export default {
           data,
           //意思是：在等号右侧的res.data中找到mate的值
           meta: { msg, status },
-        } = res.data;
+        } = res.data
 
-        //登录成功
+        
         if (status === 200) {
+          //登录成功
+          //0.保存token值
+          localStorage.setItem('token',data.token)
           //1、跳转home
-          this.$router.push({ name: "home" });
+          this.$router.push({ name: "home" })
           //2、提示成功
-          this.$message.success(msg);
+          this.$message.success(msg)
         } else {
           //不成功
           //1、提示原因
-          this.$message.error(msg);
+          this.$message.error(msg)
         }
 
       //异步操作代码
