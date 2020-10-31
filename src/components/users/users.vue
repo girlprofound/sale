@@ -148,7 +148,12 @@ export default {
             //3、更新视图
             this.getUserList()
             //4、清空文本框
-            this.form = {}
+            //this.form = {}
+            for (const key in this.form) {
+              if(this.form.hasOwnproperty(key)) {
+                this.form[key] = ""
+              }
+            }
           }else{
             this.$massage.error(msg)
           }
