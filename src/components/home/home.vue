@@ -12,7 +12,7 @@
             </el-col>
             <el-col :span="2">
                 <div class="grid-content bg-purple">
-                    <a class="loginout" href="#">退出</a>
+                    <a class="loginout" @click.prevent="handleSignout()" href="#">退出</a>
                 </div>
             </el-col>
         </el-row>
@@ -20,10 +20,7 @@
     <el-container>
       <el-aside class="aside" width="200px">
         <el-menu
-            :unique-opened="true"
-            class="el-menu-vertical-demo"
-            @open="handleOpen"
-            @close="handleClose">
+            :unique-opened="true">
             <!-- 1 -->
             <el-submenu index="1">
                 <template slot="title">
@@ -95,7 +92,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  //获取token
+ 
+  beforeCreate(){
+    const token = localStorage.getItem('token')
+    if(!token) {     
+      //token 没有 -> 登录
+      this.$router.push({name:'login'})
+    }
+      //if token 有 -> 继续渲染组件
+  },
+  methods: {
+    handleSignout() {
+      //1、清楚token
+      localStorage.clear()
+      //2、提示
+      this.$message.success('退出成功')
+      //来的Login组件
+      this.$router.push({name:'login'})
+    }
+  }
+};
 </script>
 <style scoped>
 .container {
