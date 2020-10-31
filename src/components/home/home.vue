@@ -28,7 +28,7 @@
                     <i class="el-icon-location"></i>
                     <span>用户管理</span>
                 </template> 
-                <el-menu-item index="user">
+                <el-menu-item index="users">
                     <i class="el-icon-location"></i>
                     <span>用户列表</span>
                 </el-menu-item>  
@@ -97,7 +97,6 @@
 <script>
 export default {
   //获取token
- 
   beforeCreate(){
     const token = localStorage.getItem('token')
     if(!token) {     
