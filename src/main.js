@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
+//MyBread其实是组件选项所在的对象{template:',data ...}
+import MyBread from '@/components/cuscom/myBread.vue'
 import moment from 'moment'
 //elementUI的样式引入
 import 'element-ui/lib/theme-chalk/index.css'
@@ -10,6 +12,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import MyHttpServer from '@/plugins/http.js'
 import '@/assets/css/reset.css'
 import router from './router'
+/* import { data } from 'autoprefixer' */
 
 Vue.config.productionTip = false
 
@@ -23,6 +26,9 @@ Vue.use(MyHttpServer);
 Vue.filter('fmtdate',(v)=>{
   return moment(v).format('YYYY-MM-DD')
 })
+
+//全局自定义组件
+Vue.component(MyBread.name,MyBread)
 
 /* eslint-disable no-new */
 new Vue({

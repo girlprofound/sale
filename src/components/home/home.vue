@@ -39,11 +39,11 @@
                     <i class="el-icon-location"></i>
                     <span>权限管理</span>
                 </template> 
-                <el-menu-item index="1-4-1">
+                <el-menu-item index="role">
                     <i class="el-icon-location"></i>
                     <span>角色列表</span>
                 </el-menu-item>  
-                <el-menu-item index="1-4-1">
+                <el-menu-item index="rights">
                     <i class="el-icon-location"></i>
                     <span>权限列表</span>
                 </el-menu-item> 
@@ -80,7 +80,7 @@
                     <i class="el-icon-location"></i>
                     <span>数据统计</span>
                 </template> 
-                <el-menu-item index="1-4-1">
+                <el-menu-item index="reports">
                     <i class="el-icon-location"></i>
                     <span>数据报表</span>
                 </el-menu-item>  
